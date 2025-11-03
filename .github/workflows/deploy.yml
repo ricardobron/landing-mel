@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # Export estático com NODE_ENV=production
+      - run: npm run build
+
+      - name: Prepare artifacts for GitHub Pages
+        run: |
+          # impede o Jekyll de bloquear /_next/**
+          echo > out/.nojekyll
+          # 404.html ajuda o roteamento no Pages
+          if [ -f out/404/index.html ]; then
+            mv out/404/index.html out/404.html
+          elif [ ! -f out/404.html ]; then
+            cp out/index.html out/404.html
+          fi
+          # debug opcional
+          echo "--- OUT TREE ---"
+          find out -maxdepth 3 -type d -print
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: gh-pages

@@ -19,8 +19,6 @@ export const site = {
     mercado: '/images/mercado.png',
     tecnologia: '/images/tecnologia.png',
     convite: '/images/convite.png',
-    transparencia: '/images/transparencia-template.jpg',
-    gallery: ['/images/gallery-01.jpg'],
   },
   sections: {
     desafio: {
