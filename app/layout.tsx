@@ -30,14 +30,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const base = process.env.NODE_ENV === 'production' ? '/landing-mel' : '';
-
   return (
     <html lang="en">
       <body
         className={`${roboto.className} font-sans min-h-screen bg-brand-bg text-brand-text antialiased`}
       >
-        <style>{`:root{--base-path:${base};}`}</style>
         <Navbar />
         {children}
         <Footer />

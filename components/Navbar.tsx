@@ -18,12 +18,14 @@ export function Navbar() {
   const toggleMenu = () => setIsMenuOpen((open) => !open);
   const closeMenu = () => setIsMenuOpen(false);
 
+  const base = process.env.NODE_ENV === 'production' ? '/landing-mel' : '';
+
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-brand-bg/95 px-3 backdrop-blur md:px-10">
       <Container className="flex h-16 items-center justify-between text-brand-text">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/logo.svg"
+            src={`${base}/logo.svg`}
             width={28}
             height={28}
             alt="logo"

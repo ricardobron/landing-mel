@@ -1,3 +1,5 @@
+const base = process.env.NODE_ENV === 'production' ? '/landing-mel' : '';
+
 export const site = {
   brand: {
     name: 'Município em Linha',
@@ -7,18 +9,18 @@ export const site = {
       subtitle: `Transformamos queixas em soluções através de uma <strong>plataforma digital inovadora</strong> que conecta <strong>cidadãos</strong> e <strong>autarquias portuguesas</strong>.`,
       ctaPrimary: 'Falar com a equipa',
       ctaSecondary: 'Como funciona',
-      image: '/images/hero.png',
+      image: `${base}/images/hero.png`,
     },
   },
   images: {
-    desafio: '/images/desafio.png',
-    solucao: '/images/solucao.png',
-    beneficios1: '/images/cidadao.png',
-    beneficios2: '/images/municipio.png',
-    comoFunciona: '/images/plano.png',
-    mercado: '/images/mercado.png',
-    tecnologia: '/images/tecnologia.png',
-    convite: '/images/convite.png',
+    desafio: `${base}/images/desafio.png`,
+    solucao: `${base}/images/solucao.png`,
+    beneficios1: `${base}/images/cidadao.png`,
+    beneficios2: `${base}/images/municipio.png`,
+    comoFunciona: `${base}/images/plano.png`,
+    mercado: `${base}/images/mercado.png`,
+    tecnologia: `${base}/images/tecnologia.png`,
+    convite: `${base}/images/convite.png`,
   },
   sections: {
     desafio: {
@@ -153,14 +155,14 @@ export const site = {
           bio: 'Engenheiro e programador com experiência em desenvolvimento de soluções digitais e sistemas integrados. Apaixonado por tecnologia aplicada ao impacto social e pela criação de ferramentas que aproximam pessoas e instituições.',
           quote:
             '“Acredito que tecnologia é mais poderosa quando melhora a vida das comunidades.”',
-          image: '/images/programador.png',
+          image: `${base}/images/programador.png`,
         },
         {
           name: 'Gonçalo Sirgado',
           role: 'Designer UX/UI & Criativo Estratégico',
           bio: 'Especialista em design centrado no utilizador, com foco em acessibilidade, experiência e impacto visual. Responsável pela identidade do Município em Linha e pela criação de interfaces simples, humanas e eficazes.',
           quote: '“O design é a ponte entre o cidadão e a tecnologia.”',
-          image: '/images/designer.png',
+          image: `${base}/images/designer.png`,
         },
       ],
       partnerships: [
